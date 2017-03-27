@@ -1,8 +1,78 @@
+/*
+ * Copyright 2014, Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser
+ *
+ * Developed for use with the book:
+ *
+ *    Data Structures and Algorithms in Java, Sixth Edition
+ *    Michael T. Goodrich, Roberto Tamassia, and Michael H. Goldwasser
+ *    John Wiley & Sons, 2014
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package net.datastructures;
+
 /**
  * Concrete implementation of a binary tree using a node-based, linked structure.
+ *
+ * @author Michael T. Goodrich
+ * @author Roberto Tamassia
+ * @author Michael H. Goldwasser
  */
-public class LinkedBinaryTree extends AbstractBinaryTree
-{
+public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
+
+  //---------------- nested Node class ----------------
+  /** Nested static class for a binary tree node. */
+  protected static class Node<E> implements Position<E> {
+    private E element;          // an element stored at this node
+    private Node<E> parent;     // a reference to the parent node (if any)
+    private Node<E> left;       // a reference to the left child (if any)
+    private Node<E> right;      // a reference to the right child (if any)
+
+    /**
+     * Constructs a node with the given element and neighbors.
+     *
+     * @param e  the element to be stored
+     * @param above       reference to a parent node
+     * @param leftChild   reference to a left child node
+     * @param rightChild  reference to a right child node
+     */
+    public Node(E e, Node<E> above, Node<E> leftChild, Node<E> rightChild) {
+      element = e;
+      parent = above;
+      left = leftChild;
+      right = rightChild;
+    }
+
+    // accessor methods
+    public E getElement() { return element; }
+    public Node<E> getParent() { return parent; }
+    public Node<E> getLeft() { return left; }
+    public Node<E> getRight() { return right; }
+
+    // update methods
+    public void setElement(E e) { element = e; }
+    public void setParent(Node<E> parentNode) { parent = parentNode; }
+    public void setLeft(Node<E> leftChild) { left = leftChild; }
+    public void setRight(Node<E> rightChild) { right = rightChild; }
+  } //----------- end of nested Node class -----------
+
+  /** Factory function to create a new node storing element e. */
+  protected Node<E> createNode(E e, Node<E> parent,
+                                  Node<E> left, Node<E> right) {
+    return new Node<E>(e, parent, left, right);
+  }
+
   // LinkedBinaryTree instance variables
   /** The root of the binary tree */
   protected Node<E> root = null;     // root of the tree
