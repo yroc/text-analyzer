@@ -67,13 +67,6 @@ public class BinarySearchTree
         return this.size() == 0;
     }
 
-    /** Returns true if the given node has one or more children, false
-     * otherwise.
-     */
-    /*boolean isInternal(BTNode node)
-    {
-    }*/
-
     /**
      * Returns true if the given node does not have any children.
      */
