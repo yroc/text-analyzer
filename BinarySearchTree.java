@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays;
 import java.io.File;
 import java.io.FileNotFoundException;
 
@@ -7,7 +6,7 @@ import java.io.FileNotFoundException;
  * A class to store all distinct words from a text file
  */
 
-public class BinarySearchTree extends LinkedBinaryTree
+public class BinarySearchTree
 {
     // Instance variables
     private BTNode root; // reference to the root of this BST
