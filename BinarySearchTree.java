@@ -33,15 +33,6 @@ public class BinarySearchTree
     }
 
     /**
-     * Returns the reference to the parent of the given node (or null if the
-     * given node is the root)
-     */
-    public BTNode parent(BTNode node)
-    {
-        return node.getParent();
-    }
-
-    /**
      * Returns the reference to the left child of the given node (or null if no
      * child exists)
      */
