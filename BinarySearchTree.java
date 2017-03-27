@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
  * A class to store all distinct words from a text file
  */
 
-public class BinarySearchTree
+public class BinarySearchTree extends LinkedBinaryTree
 {
     // Instance variables
     private BTNode root; // reference to the root of this BST
@@ -151,22 +151,6 @@ public class BinarySearchTree
         parent.setRight(child);
         this.size++;
         return child;
-    }
-
-    // support for computing depth of nodes and height of (sub)trees
-    /**
-     * Returns the number of levels separating the given node from the root
-     */
-    public int depth(BTNode node)
-    {
-        if (isRoot(node))
-            {
-                return 0;
-            }
-        else
-            {
-                return 1 + depth(parent(node));
-            }
     }
 
     /**
