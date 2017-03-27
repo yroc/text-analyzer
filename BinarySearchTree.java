@@ -33,14 +33,6 @@ public class BinarySearchTree
     }
 
     /**
-     * Returns the reference to the root of this BST (or null if this BST is empty)
-     */
-    public BTNode root()
-    {
-        return this.root;
-    }
-
-    /**
      * Returns the reference to the parent of the given node (or null if the
      * given node is the root)
      */
@@ -73,14 +65,6 @@ public class BinarySearchTree
     public boolean isEmpty()
     {
         return this.size() == 0;
-    }
-    
-    /**
-     * Returns true if the given node represents the root of the tree
-     */
-    public boolean isRoot(BTNode node)
-    {
-        return node == this.root();
     }
 
     /** Returns true if the given node has one or more children, false
